@@ -1,0 +1,26 @@
+<html xmlns:th="https://www.thymeleaf.org"
+      th:replace="~{fragments/layout :: layout (~{::body},'livratori')}">
+
+<body>
+
+<h2>Livrator</h2>
+<form th:object="${livrator}" class="form-horizontal" id="add-livrator-form" method="post">
+    <div class="form-group has-feedback">
+        <input
+                th:replace="~{fragments/inputField :: input ('First Name', 'firstName', 'text')}" />
+        <input
+                th:replace="~{fragments/inputField :: input ('Last Name', 'lastName', 'text')}" />
+        <input
+                th:replace="~{fragments/inputField :: input ('Telephone', 'telephoneNumber', 'text')}" />
+    </div>
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <button
+                    th:with="text=${livrator['new']} ? 'Add Livrator' : 'Update Livrator'"
+                    class="btn btn-primary" type="submit" th:text="${text}">Add
+                Livrator</button>
+        </div>
+    </div>
+</form>
+</body>
+</html>
